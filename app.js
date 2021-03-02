@@ -17,6 +17,8 @@ mongoose.connection.on('connected',() => {
 
 const defaultSchema = new mongoose.Schema({});
 const globalAndUS = mongoose.model('globalAndUS', defaultSchema, 'global_and_us');
+const global = mongoose.model('global', defaultSchema, 'global');
+
 app.get("/", function(req, res){
     console.log("We are in the home page");
     res.send("<h1> Hello World </h1");
@@ -28,6 +30,24 @@ app.get("/covidData", function(req, res){
 
     //Get the last entry for france
     globalAndUS.find({ country: "France" }).sort({'date': -1}).limit(1).lean().exec(function(err, results) {
+        if (err) {
+            console.log('error', err);
+            res.send(err);
+        } else if (!results) {
+            res.send(null);
+        } else {
+            //console.log('results', results);
+            res.send(results);
+        }
+    })
+  
+});
+
+app.get("/usDataForLastTenDays", function(req, res){ 
+    console.log("We are getting data");
+
+    //Get the last entry for france
+    global.find({ country: "US" }).sort({'date': -1}).limit(10).lean().exec(function(err, results) {
         if (err) {
             console.log('error', err);
             res.send(err);
