@@ -95,6 +95,32 @@ app.get("/usDataForLastTenDays", function(req, res){
     })
   
 });
+
+app.get("/franceData", function(req, res){ 
+    console.log("We are getting data");
+    global.find({ combined_name: "France" }).sort({'date': -1}).limit(10).lean().exec(function(err, results) {
+        if (err) {
+            console.log('error', err);
+            res.send(err);
+        } else if (!results) {
+            res.send(null);
+        } else {
+            //console.log('results', results);
+            //res.send(results);
+            var querydata = new Array();
+            for (var i = 0; i < results.length; i++){
+                querydata.push({
+                    label: String(results[i].date).slice(3,10),
+                    confirmed: results[i].confirmed_daily,
+                    rcovered: results[i].recovered_daily
+                });
+            }
+            res.send(querydata);
+        }
+    })
+    
+  
+});
   
 app.listen(5000, function(){
     console.log("server started on 5000");
