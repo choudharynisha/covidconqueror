@@ -223,8 +223,8 @@ app.get("/dataGlobe", function(req, res){
             for (var i = 0; i < results.length; i++){
                 if(results[i].hasOwnProperty("loc")){
                     querydata.push({
-                        lat: results[i].loc.coordinates[0],
-                        lng: results[i].loc.coordinates[1],
+                        lng: results[i].loc.coordinates[0],
+                        lat: results[i].loc.coordinates[1],
                         cases: results[i].confirmed,
                         combined_name: results[i].combined_name
                     });
