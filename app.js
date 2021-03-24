@@ -235,6 +235,89 @@ app.get("/dataGlobe", function(req, res){
     })
 });
 
+/****************************************** StackedAreaChart *******************************/
+app.get("/dataGlobalAreaChart", function(req, res){ 
+    //{title: {$in: ['some title', 'some other title']}
+    let countries = ["China", "France", "Egypt", "Germany"];
+    countries_summary.find({ country: {$in: countries}, date: {
+        $gte: new Date("2021-02-01"),
+        $lte: new Date("2021-02-10")
+    }}).select("date country population confirmed_daily -_id")
+    .lean().exec(function(err, results) {
+        if (err) {
+            console.log('error', err);
+            res.send(err);
+        } else if (!results) {
+            res.send(null);
+        } else {
+           var queryData = new Array();
+           let currentDay = new Date("2021-02-01");
+           let endDay = new Date("2021-02-10");
+           let index = 0;
+           while (currentDay < endDay) {
+                var dataObject = {};
+                dataObject.date = currentDay.toString().slice(3,10);
+                for(var i = 0; i < results.length; i++){
+                    for(var j = 0; j < countries.length; j++){
+                        //console.log(results[i].population);
+                        if (results[i].country === countries[j] && String(results[i].date) === String(currentDay)){
+                            var area = countries[j]
+                            var cases = countries[j]
+                            //dataObject[area] = countries[j];
+                            dataObject[cases] = results[i].confirmed_daily;
+                        }
+                    }
+                }
+                queryData.push(dataObject);
+                currentDay.setDate(currentDay.getDate()+1);
+                index++;
+           }
+            res.send(queryData);
+            //res.send(results);
+        }
+    })
+});
+
+/****************************************** POST StackedAreaChart *******************************/
+app.post("/dataGlobalAreaChart", function(req, res){ 
+    let countries = req.body.selectedCountries;
+    countries_summary.find({ country: {$in: countries}, date: {
+        $gte: new Date(req.body.startDate.slice(0,10)),
+        $lte: new Date(req.body.endDate.slice(0,10)),
+    }}).select("date country population confirmed confirmed_daily -_id")
+    .lean().exec(function(err, results) {
+        if (err) {
+            console.log('error', err);
+            res.send(err);
+        } else if (!results) {
+            res.send(null);
+        } else {
+           var queryData = new Array();
+           let currentDay = new Date(req.body.startDate); 
+           let endDay = new Date(req.body.endDate); 
+           let index = 0;
+           while (currentDay < endDay) {
+                var dataObject = {};
+                dataObject.date = currentDay.toString().slice(3,10);
+                for(var i = 0; i < results.length; i++){
+                    for(var j = 0; j < countries.length; j++){
+                        if (results[i].country === countries[j] && String(results[i].date) === String(currentDay)){
+                            var countryCases = countries[j]
+                            dataObject[countryCases] = results[i].confirmed_daily;
+                            //dataObject[cases] = results[i].confirmed;
+                        }
+                    }
+                }
+                queryData.push(dataObject);
+                currentDay.setDate(currentDay.getDate()+1);
+                index++;
+           }
+            res.send(queryData);
+            //res.send(results);
+        }
+    })
+});
+
 app.listen(5000, function(){
     console.log("server started on 5000 filterCovid");
 });
