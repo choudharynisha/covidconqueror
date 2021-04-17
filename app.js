@@ -29,11 +29,11 @@ const countries_summary = mongoose.model('countries_summary', defaultSchema, 'co
 const metadata = mongoose.model('metadata', defaultSchema, 'metadata');
 const us_only = mongoose.model('us_only', defaultSchema, 'us_only');
 
-app.get("/", function(req, res){
-    console.log("We are in the home page");
-    res.send("<h1> Hello World </h1");
+// app.get("/", function(req, res){
+//     console.log("We are in the home page");
+//     res.send("<h1> Hello World </h1");
   
-});
+// });
 
 /****************************************** CovidDashboard GlobalChart component  *******************************/
 // display global countries
