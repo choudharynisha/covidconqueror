@@ -1,0 +1,14 @@
+.Textbox{
+    width: 80%;
+    border: 1px solid teal;
+    padding: 50px;
+    margin: 20px;
+    align-items: center;
+    text-align: justify;
+    border-radius: 4%;
+  }
+
+  .heading{
+    padding-bottom: 10px;
+    text-align: center;
+  }

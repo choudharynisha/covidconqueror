@@ -1,0 +1,130 @@
+
+  ol {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    --hue: 90;
+    --unit: 1rem;
+  }
+  a{
+    color: black;
+    text-decoration: none;
+  }
+
+  list{
+    --height: 7rem;
+    position: relative;
+    display: block;
+    background-color: hsl(calc(var(--hue)*30/1.5),70%,65%);
+    border-color: hsl(calc(var(--hue)*30/1.5),70%,65%);
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 15%;
+
+  }
+  list::before {
+    content: "";
+    background-color: inherit;
+    position: absolute;
+    display: block;
+    width: var(--unit);
+    height: var(--unit);
+    top: 100%;
+    left: calc(50% - (var(--unit)/2));
+  }
+  list::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: calc(100% + var(--unit));
+    left: calc(50% - (var(--unit)));
+    border: var(--unit) solid transparent;
+    border-top-color: inherit;
+  }
+  list:last-child::before,
+  list:last-child::after {
+    content: none;
+  }
+  list:nth-child(9n+1){
+    --hue: 1;
+  }
+  list:nth-child(9n+2){
+    --hue: 2;
+  }
+  list:nth-child(9n+3){
+    --hue: 3;
+  }
+  list:nth-child(9n+4){
+    --hue: 4;
+  }
+  list:nth-child(9n+5){
+    --hue: 5;
+    right: calc(9% - (var(--unit)));
+
+  }
+  list:nth-child(9n+6){
+    --hue: 6;
+    right: calc(9% - (var(--unit)));
+  }
+  list:nth-child(9n+7){
+    --hue: 7;
+    right: calc(9% - (var(--unit)));
+  }
+  list:nth-child(9n+8){
+    --hue: 8;
+    right: calc(9% - (var(--unit)));
+  }
+  list:nth-child(9n+9){
+    --hue: 9;
+  }
+  list:nth-child(9n+10){
+    --hue: 10;
+  }
+  
+ 
+  @media (min-width: 1200px){
+    ol {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    list{
+      margin: 1rem;
+      width: calc(25% - 4rem);
+      float: left;
+      min-height: 10rem;
+    }
+    list:nth-child(8n+5),
+    list:nth-child(8n+6),
+    list:nth-child(8n+7),
+    list:nth-child(8n+8){
+      float: right;
+    }
+    list:nth-child(8n+1)::before,
+    list:nth-child(8n+2)::before,
+    list:nth-child(8n+3)::before{
+      top: calc(var(--height)/2 + var(--unit)/2);
+      left: 100%;
+    }
+    list:nth-child(8n+1)::after,
+    list:nth-child(8n+2)::after,
+    list:nth-child(8n+3)::after{
+      top: calc(var(--height)/2);
+      left: calc(100% + (var(--unit)));
+      border: var(--unit) solid transparent;
+      border-left-color: inherit;
+    }
+    list:nth-child(8n+5)::before,
+    list:nth-child(8n+6)::before,
+    list:nth-child(8n+7)::before {
+      top: calc(var(--height)/2 + var(--unit)/2);
+      left: -1rem;
+    }
+    list:nth-child(8n+5)::after,
+    list:nth-child(8n+6)::after,
+    list:nth-child(8n+7)::after {
+      top: calc(var(--height)/2);
+      left: -3rem;
+      border: var(--unit) solid transparent;
+      border-right-color: inherit;
+    }
+  }

@@ -101,14 +101,14 @@ app.post("/dataUSCovidWithTimeRange", function(req, res){
         } else {
             //res.send(results);
             var querydata = new Array();
-
+            
             for(var i = 0; i < results.length; i++){
                 querydata.push({
                     label: String(results[i]._id).slice(3,10),
                     value: results[i].value
                 });
             }
-
+            
             res.send(querydata);
         }
     })
@@ -175,22 +175,22 @@ app.post("/dataGlobalCovidAndRecovered", function(req, res){
             var querydata = new Array();
             var popdata = new Array();
             var casedata = new Array();
-
+            
             popdata.push({ 
                 name: "Population",
                 value: results[0].population
             });
-
+            
             casedata.push({
                 name: "COVID Cases",
                 value: results[0].confirmed
             });
-
+            
             casedata.push({
                 name: "Recovered Cases",
                 value: results[0].recovered
             });
-
+            
             let notAffected = (results[0].population - (results[0].confirmed + results[0].recovered));
             casedata.push({
                 name: "Not affected",
