@@ -320,6 +320,47 @@ app.post("/dataGlobalAreaChart", function(req, res){
     })
 });
 
+/****************************************** POST StackedChartGlobalRecovered *******************************/
+//for covid cases in the stacked area and stacked bar chart
+app.post("/dataGlobalStackedChartRecovered", function(req, res){ 
+    let countries = req.body.selectedCountries;
+    countries_summary.find({ country: {$in: countries}, date: {
+        $gte: new Date(req.body.startDate.slice(0,10)),
+        $lte: new Date(req.body.endDate.slice(0,10)),
+    }}).select("date country population recovered_daily -_id")
+    .lean().exec(function(err, results) {
+        if (err) {
+            console.log('error', err);
+            res.send(err);
+        } else if (!results) {
+            res.send(null);
+        } else {
+           var queryData = new Array();
+           let currentDay = new Date(req.body.startDate); 
+           let endDay = new Date(req.body.endDate); 
+           let index = 0;
+           while (currentDay < endDay) {
+                var dataObject = {};
+                dataObject.date = currentDay.toString().slice(3,10);
+                for(var i = 0; i < results.length; i++){
+                    for(var j = 0; j < countries.length; j++){
+                        if (results[i].country === countries[j] && String(results[i].date) === String(currentDay)){
+                            var countryCases = countries[j]
+                            dataObject[countryCases] = results[i].recovered_daily;
+                            //dataObject[cases] = results[i].confirmed;
+                        }
+                    }
+                }
+                queryData.push(dataObject);
+                currentDay.setDate(currentDay.getDate()+1);
+                index++;
+           }
+            res.send(queryData);
+            //res.send(results);
+        }
+    })
+});
+
 // Server static assets in production
 if(process.env.NODE_ENV === "production") {
     // Set static folder
