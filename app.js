@@ -1,5 +1,7 @@
+require('dotenv').config();
 const express = require("express");
 const path = require("path");
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -8,7 +10,7 @@ app.use(bodyParser.json());
 
 const mongoose = require("mongoose");
 
-const uri = "mongodb+srv://readonly:readonly@covid-19.hip2i.mongodb.net/covid19";
+const uri = process.env.MONGODB_URI;
 
 // Set up default mongoose connection
 mongoose.connect(uri, {
