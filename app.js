@@ -14,12 +14,12 @@ const uri = process.env.MONGODB_URI;
 
 // Set up default mongoose connection
 mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 });
 
 mongoose.connection.on('connected',() => {
-  console.log('Mongoose is connected!');
+    console.log('Mongoose is connected!');
 });
 
 const defaultSchema = new mongoose.Schema({});
@@ -223,15 +223,27 @@ app.get("/dataGlobe", function(req, res){
             res.send(null);
         } else {
             //res.send(results);
+            var us_cases = 0;
             var querydata = new Array();
-            for (var i = 0; i < results.length; i++){
-                if(results[i].hasOwnProperty("loc")){
-                    querydata.push({
-                        lng: results[i].loc.coordinates[0],
-                        lat: results[i].loc.coordinates[1],
-                        cases: results[i].confirmed,
-                        combined_name: results[i].combined_name
-                    });
+            for (var i = 0; i < results.length; i++) {
+                if(results[i].hasOwnProperty("loc")) {
+                    var combined_name_length = results[i].combined_name.length;
+                    if(results[i].combined_name.substring(combined_name_length - 2).localeCompare("US") == 0) {
+                        us_cases += results[i].confirmed;
+                        querydata.push({
+                            lng: results[i].loc.coordinates[0],
+                            lat: results[i].loc.coordinates[1],
+                            cases: us_cases,
+                            combined_name: "United States"
+                        });
+                    } else {
+                        querydata.push({
+                            lng: results[i].loc.coordinates[0],
+                            lat: results[i].loc.coordinates[1],
+                            cases: results[i].confirmed,
+                            combined_name: results[i].combined_name
+                        });
+                    }
                 }
             }
             res.send(querydata);
