@@ -5,18 +5,23 @@ class Threebuttons extends Component{
     render () {
         return (
             <div>
-                <div class="Eachbutton">
-                    <p>Previous Mission</p>
+               
+                    <div className= "eachbutton">
+                    <p>Previous</p>
                     <i class="fas fa-hand-point-left"></i>
-                </div>
-                <div class="Eachbutton"> 
-                    <p>Return to top</p>
+                    
+              </div>
+              <div className= "eachbutton">
+                    <p>Previous</p>
                     <i class="fas fa-hand-point-up"></i>
-                </div>
-                <div class="Eachbutton">
-                    <p>Next Mission</p>
+                    
+              </div>
+               
+                <div className= "eachbutton">
+                    <p>Next</p>
                     <i class="fas fa-hand-point-right"></i>
-                </div>
+                    </div>
+                
             </div>
               
             )
