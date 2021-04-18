@@ -1,9 +1,9 @@
 import '../../App.css';
 import Threebuttons from '../Navbar/Threebuttons'
-import Reflection from '../Navbar/Reflection'
 import FooterPage from '../Navbar/Footer'
 import CovidDashboard from '../Dashboard/All_Cases/CovidDashboard.js';
 import AreaChartGlobal from '../Dashboard/All_Cases/AreaChartGlobal.js';
+import '../Navbar/Textbox.css'
 
 function DashboardAll() {
     return (
