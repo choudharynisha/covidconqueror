@@ -12,7 +12,7 @@ class Threebuttons extends Component{
                     
               </div>
               <div className= "eachbutton">
-                    <p>Previous</p>
+                    <p>Top</p>
                     <i class="fas fa-hand-point-up"></i>
                     
               </div>
