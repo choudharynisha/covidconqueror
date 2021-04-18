@@ -307,9 +307,16 @@ app.post("/dataGlobalAreaChart", function(req, res){
                 dataObject.date = currentDay.toString().slice(3,10);
                 for(var i = 0; i < results.length; i++){
                     for(var j = 0; j < countries.length; j++){
-                        if (results[i].country === countries[j] && String(results[i].date) === String(currentDay)){
+                        //if (results[i].country === countries[j] && String(results[i].date) === String(currentDay)){
+                        if (results[i].country === countries[j] && String(results[i].date).slice(3,10) === String(currentDay).slice(3,10)){
                             var countryCases = countries[j]
-                            dataObject[countryCases] = results[i].confirmed_daily;
+                            if(results[i].confirmed_daily < 0){
+                                dataObject[countryCases] = 0;
+                            }
+                            else{
+                                dataObject[countryCases] = results[i].confirmed_daily;
+                            }
+                            //dataObject[countryCases] = results[i].confirmed_daily;
                             //dataObject[cases] = results[i].confirmed;
                         }
                     }
@@ -348,9 +355,16 @@ app.post("/dataGlobalStackedChartRecovered", function(req, res){
                 dataObject.date = currentDay.toString().slice(3,10);
                 for(var i = 0; i < results.length; i++){
                     for(var j = 0; j < countries.length; j++){
-                        if (results[i].country === countries[j] && String(results[i].date) === String(currentDay)){
+                        //if (results[i].country === countries[j] && String(results[i].date) === String(currentDay)){
+                        if (results[i].country === countries[j] && String(results[i].date).slice(3,10) === String(currentDay).slice(3,10)){
                             var countryCases = countries[j]
-                            dataObject[countryCases] = results[i].recovered_daily;
+                            if(results[i].recovered_daily < 0){
+                                dataObject[countryCases] = 0;
+                            }
+                            else{
+                                dataObject[countryCases] = results[i].recovered_daily;
+                            }
+                            //dataObject[countryCases] = results[i].recovered_daily;
                             //dataObject[cases] = results[i].confirmed;
                         }
                     }
