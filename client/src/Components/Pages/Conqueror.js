@@ -16,11 +16,9 @@ function Conqueror() {
               
        
                 <Threebuttons />
-                <br></br>
-                <br></br>
+               
                 <FooterPage /> 
-                <br></br>
-                <br/>              
+                            
             </center>
         </div>
     );
