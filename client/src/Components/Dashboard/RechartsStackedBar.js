@@ -16,27 +16,27 @@ class RechartsStackedBar extends Component {
         };
 
         const getComparison = (value) => {
-            // 10 - limo (90) fitting 10 people
-            // 100 - school auditorium (100 - 900) fitting 100 people
-            // 1000 - stadium (1000 - up) fitting 1000 people 
-  
-            if (value >= 10 && value <= 100) {
-              return " cases is about " + Math.round(value/10) + " limos fitting 10 people";
-            }
-            else if(value > 100){
-              return " cases is about " + Math.round(value/100) + " school auditoriums fitting 100 people";
-            }
-            /*else if(value > 100 && value <= 1000){
-              return " cases is about " + Math.round(value/100) + " school auditoriums fitting 100 people";
-            }
-            else if(value > 1000){
-              return " is about " + Math.round(value/1000) + " stadiums fitting 1000 people";
-            }*/
-            else{
-              return " cases is about less than a limo";
-            }
-            return "";
-          };
+          // 10 - limo (90) fitting 10 people
+          // 100 - school auditorium (100 - 900) fitting 100 people
+          // 1000 - stadium (1000 - up) fitting 1000 people 
+
+          if (value >= 10 && value <= 100) {
+            return " cases is about " + Math.round(value/10) + " soccer teams with 10 people";
+          }
+          /*else if(value > 100){
+            return " cases is about " + Math.round(value/100) + " school auditoriums fitting 100 people";
+          }*/
+          else if(value > 100 && value <= 1000){
+            return " cases is about " + Math.round(value/100) + " school auditoriums fitting 100 people";
+          }
+          else if(value > 1000){
+            return " is about " + Math.round(value/1000) + " stadiums fitting 1000 people";
+          }
+          else{
+            return " cases is about less than a soccer team";
+          }
+          return "";
+        };
   
           const renderDataDiv = (payload) => {
             //var arr = ["uv", "pv", "amt"];
@@ -92,7 +92,12 @@ class RechartsStackedBar extends Component {
                     >
                     
                     <XAxis dataKey="date" />
-                    <YAxis />
+
+                    <YAxis>
+                      <Label value="Cases" angle= '-90' offset={15} position="insideLeft" />
+                    </YAxis>
+
+                    //<YAxis />
                     {/* <Tooltip /> */}
                     <Tooltip content={<CustomTooltip />} />
                     <Legend />
