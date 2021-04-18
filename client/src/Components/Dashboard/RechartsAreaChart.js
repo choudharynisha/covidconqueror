@@ -23,19 +23,19 @@ class RechartsAreaChart extends Component {
           // 1000 - stadium (1000 - up) fitting 1000 people 
 
           if (value >= 10 && value <= 100) {
-            return " cases is about " + Math.round(value/10) + " limos fitting 10 people";
+            return " cases is about " + Math.round(value/10) + " soccer teams with 10 people";
           }
-          else if(value > 100){
+          /*else if(value > 100){
             return " cases is about " + Math.round(value/100) + " school auditoriums fitting 100 people";
-          }
-          /*else if(value > 100 && value <= 1000){
+          }*/
+          else if(value > 100 && value <= 1000){
             return " cases is about " + Math.round(value/100) + " school auditoriums fitting 100 people";
           }
           else if(value > 1000){
             return " is about " + Math.round(value/1000) + " stadiums fitting 1000 people";
-          }*/
+          }
           else{
-            return " cases is about less than a limo";
+            return " cases is about less than a soccer team";
           }
           return "";
         };
@@ -93,7 +93,12 @@ class RechartsAreaChart extends Component {
             >
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="date" />
-              <YAxis />
+
+              <YAxis>
+                <Label value="Cases" angle= '-90' offset={15} position="insideLeft" />
+              </YAxis>
+
+              //<YAxis />
               {/* <Tooltip /> */}
               {renderArea()}
               <Tooltip content={<CustomTooltip />} />
