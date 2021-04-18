@@ -225,7 +225,9 @@ app.get("/dataGlobe", function(req, res){
             //res.send(results);
             var querydata = new Array();
             for (var i = 0; i < results.length; i++) {
-                if(results[i].hasOwnProperty("loc")) {
+                var combined_name_length = results[i].combined_name.length;
+                
+                if(results[i].hasOwnProperty("loc") && (results[i].combined_name.substring(combined_name_length - 2).localeCompare("US") != 0)) {
                     querydata.push({
                         lng: results[i].loc.coordinates[0],
                         lat: results[i].loc.coordinates[1],
