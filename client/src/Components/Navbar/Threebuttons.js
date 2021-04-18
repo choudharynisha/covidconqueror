@@ -6,15 +6,15 @@ class Threebuttons extends Component{
         return (
             <div>
                 <div class="Eachbutton">
-                    <p>Previous</p>
+                    <p>Previous Mission</p>
                     <i class="fas fa-hand-point-left"></i>
                 </div>
-                <div class="Eachbutton">
-                    <p>Current</p>
+                <div class="Eachbutton"> 
+                    <p>Return to top</p>
                     <i class="fas fa-hand-point-up"></i>
                 </div>
                 <div class="Eachbutton">
-                    <p>Next</p>
+                    <p>Next Mission</p>
                     <i class="fas fa-hand-point-right"></i>
                 </div>
             </div>

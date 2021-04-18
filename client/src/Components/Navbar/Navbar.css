@@ -1,10 +1,10 @@
 .NavbarItems{
-    /*background-color: linear-gradient(90deg, rgb(110,94,254) 0%, rgba(73,63,252,1) 100%);*/
     background-color: teal;
     height: 80px;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
+    font-weight: bold;
     align-items: center;
     font-size: 1.2rem;
     width: 100%;

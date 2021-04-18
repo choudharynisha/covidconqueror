@@ -24,6 +24,7 @@ function App() {
             <div className = "App">
                 <center>
                     <Navbar />
+                    <br/>
                     <Switch>
                         <Route exact path = "/AllRecoveries">
                             <DashboardRecovered />
