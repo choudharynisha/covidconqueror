@@ -32,7 +32,26 @@ function ContentMission() {
                             </div>
                         </div>
                 </div>
-                <Threebuttons />
+                <a href = "/ContentMission">
+            <div className= "eachbutton">
+                    <p>Previous</p>
+                    <i class="fas fa-hand-point-left"></i>
+                    
+              </div>
+              </a>
+              <a href = "/ContentMission">
+              <div className= "eachbutton">
+                    <p>Top</p>
+                    <i class="fas fa-hand-point-up"></i>
+                    
+              </div>
+              </a>
+              <a href = "/ContentMission">
+                  <div className= "eachbutton">
+                        <p>Next</p>
+                        <i class="fas fa-hand-point-right"></i>
+                    </div>
+                </a>
                 <FooterPage />
             </center>
         </div>

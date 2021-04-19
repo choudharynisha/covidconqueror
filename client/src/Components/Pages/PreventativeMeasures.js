@@ -34,7 +34,26 @@ function PreventativeMeasures() {
                             </div>
                         </div>
                 </div>
-                <Threebuttons />
+                <a href = "/Globe">
+            <div className= "eachbutton">
+                    <p>Previous</p>
+                    <i class="fas fa-hand-point-left"></i>
+                    
+              </div>
+              </a>
+              <a href = "#">
+              <div className= "eachbutton">
+                    <p>Top</p>
+                    <i class="fas fa-hand-point-up"></i>
+                    
+              </div>
+              </a>
+              <a href = "/FaceMasks">
+                  <div className= "eachbutton">
+                        <p>Next</p>
+                        <i class="fas fa-hand-point-right"></i>
+                    </div>
+                </a>
                 <FooterPage />                
             </center>
         </div>

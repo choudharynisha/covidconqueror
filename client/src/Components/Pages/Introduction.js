@@ -47,7 +47,26 @@ function Introduction() {
                     </div>
                 </div>
             </div>
-                <Threebuttons />
+            <a href = "/">
+                  <div className= "eachbutton">
+                        <p>Return Home</p>
+                        <i class="fas fa-hand-point-left"></i>
+                    </div>
+                </a>
+            
+              <a href = "#">
+              <div className= "eachbutton">
+                    <p>Top</p>
+                    <i class="fas fa-hand-point-up"></i>
+                    
+              </div>
+              </a>
+              <a href = "/History">
+                  <div className= "eachbutton">
+                        <p>Next</p>
+                        <i class="fas fa-hand-point-right"></i>
+                    </div>
+                </a>
                 <FooterPage />             
             </center>
         </div>

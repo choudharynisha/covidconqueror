@@ -2,6 +2,7 @@ import '../../App.css';
 import Threebuttons from '../Navbar/Threebuttons'
 import FooterPage from '../Navbar/Footer'
 import '../Navbar/Textbox.css'
+import '../Navbar/Threebuttons.css'; 
 
 
 function Conqueror() {
@@ -34,8 +35,27 @@ function Conqueror() {
                             </div>
                         </div>
                 </div>
-       
-                <Threebuttons />
+
+            <a href = "/AllRecoveries">
+            <div className= "eachbutton">
+                    <p>Previous</p>
+                    <i class="fas fa-hand-point-left"></i>
+                    
+              </div>
+              </a>
+              <a href = "#">
+              <div className= "eachbutton">
+                    <p>Top</p>
+                    <i class="fas fa-hand-point-up"></i>
+                    
+              </div>
+              </a>
+              <a href = "/Summary">
+                  <div className= "eachbutton">
+                        <p>Next</p>
+                        <i class="fas fa-hand-point-right"></i>
+                    </div>
+                </a>
                
                 <FooterPage /> 
                             
