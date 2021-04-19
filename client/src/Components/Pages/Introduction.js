@@ -37,7 +37,7 @@ function Introduction() {
               <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front"><p className = "paragraph">How do viruses make a person sick? </p></div>
-                        <div class="flip-card-back"><p className = "paragraph">Virus invade the body of a healthy person and makes more copies itself therefore weakening the body and eventually making the person sick</p> </div>
+                        <div class="flip-card-back"><p className = "paragraph">Viruses invade the body of a healthy person and makes more copies itself therefore weakening the body and eventually making the person sick</p> </div>
                     </div>
                 </div>
                 <div class="flip-card">
