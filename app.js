@@ -215,7 +215,30 @@ app.get("/dataGlobe", function(req, res){
     const yesterday = new Date(new Date);
     yesterday.setDate(yesterday.getDate() - 1);
     var value = yesterday.toISOString().split('T')[0];
-    global_and_us.find({date: new Date(value)}).lean().exec(function(err, results) {
+    global.find({date: new Date(value)}).lean().exec(function(err, results) {
+        if (err) {
+            console.log('error', err);
+            res.send(err);
+        } else if (!results) {
+            res.send(null);
+        } else {
+            //res.send(results);
+            var querydata = new Array();
+            for (var i = 0; i < results.length; i++){
+                if(results[i].hasOwnProperty("loc")){
+                    querydata.push({
+                        lng: results[i].loc.coordinates[0],
+                        lat: results[i].loc.coordinates[1],
+                        cases: results[i].confirmed,
+                        combined_name: results[i].combined_name
+                    });
+                }
+            }
+            res.send(querydata);
+        }
+    })
+    // old query and formatting for globe where US was no one tower
+    /*global_and_us.find({date: new Date(value)}).lean().exec(function(err, results) { 
         if (err) {
             console.log('error', err);
             res.send(err);
@@ -238,7 +261,7 @@ app.get("/dataGlobe", function(req, res){
             }
             res.send(querydata);
         }
-    })
+    })*/
 });
 
 /****************************************** StackedAreaChart *******************************/
