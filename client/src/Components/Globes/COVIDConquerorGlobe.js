@@ -63,6 +63,10 @@ class COVIDConquerorGlobe extends Component {
                     
                     pointsData = {this.state.globeData}
                     pointLabel = {getTooltip}
+                    pointRadius = {0.30}
+                    pointAltitude = {0.2}
+                    pointResolution = {20}
+            
                 />
             </div>
         )
