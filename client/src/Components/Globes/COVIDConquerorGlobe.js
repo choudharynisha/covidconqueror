@@ -66,6 +66,10 @@ class COVIDConquerorGlobe extends Component {
                     pointRadius = {0.30}
                     pointAltitude = {0.2}
                     pointResolution = {20}
+                    
+            
+//                     width = {900}
+//                     height = {500}
             
                 />
             </div>
