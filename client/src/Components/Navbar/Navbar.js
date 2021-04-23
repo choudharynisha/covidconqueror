@@ -35,8 +35,9 @@ class Navbar extends Component{
     render () {
         return (
             <nav className = {`NavbarItems ${this.state.nav && 'Nav'}`}>
+               
                 <h1 className = "navbar-logo"> Covid Conqueror <em className = 'fas fa-shield-virus'></em></h1>
-
+                
                 <div className = "menu-icon" onClick = {this.handleClick}>
                     <em className = {this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></em>
                 </div>
@@ -53,7 +54,6 @@ class Navbar extends Component{
                     })}
                 </ul>
 
-                <Button>Help</Button>
             </nav>
         )
     }

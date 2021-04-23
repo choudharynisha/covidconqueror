@@ -1,6 +1,12 @@
 import '../../App.css';
 import Roadmap from '../Navbar/Roadmap.js';
 
+import React, {Component} from 'react';
+import '../Navbar/Roadmap.css'; 
+
+
+
+
 
 function Landing() {
     return (

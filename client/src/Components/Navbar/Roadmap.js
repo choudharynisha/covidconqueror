@@ -9,10 +9,10 @@ class Roadmap extends Component{
                 
                 <list ><a href = "/Introduction">
                     <h1>Introduction</h1>
-                    <p>What is a Disease</p>
-                    <p>What is a virsu</p>
-                    <p>What is COVID-19</p>
-                    <p>What are the symptoms of COVID-19</p>
+                    <p>What is a disease?</p>
+                    <p>What is a virus?</p>
+                    <p>What is COVID-19?</p>
+                    <p>What are the symptoms of COVID-19?</p>
                     </a>
                 </list>
                 
@@ -21,8 +21,8 @@ class Roadmap extends Component{
                 <list>
                     <a href = "/History">
                     <h1>History of COVID</h1>
-                    <p>When was the first case of COVID-19 reported</p>
-                    <p>Spread of COVDI-19 around the world</p>
+                    <p>When was the first case of COVID-19 reported?</p>
+                    <p>How did COVID-19 spread around the world?</p>
                     <p>Vaccines to bring hope!</p>
                     </a>
                 </list>
@@ -32,7 +32,7 @@ class Roadmap extends Component{
                 <list>
                     <a href = "/AllCases">
                     <h1>Dashboard: Confirmed Cases</h1>
-                    <p>View number of confirmed cases of COVID-19 for each country</p>
+                    <p>View number of confirmed cases of COVID-19 for each country.</p>
                     </a>
                 </list>
                 
@@ -42,7 +42,7 @@ class Roadmap extends Component{
                 <list>
                     <a href = "/Globe">
                     <h1>Dashboard: Globe</h1>
-                    <p>View COVID-19 cases for each country on the globe</p>
+                    <p>View COVID-19 cases for each country on the globe.</p>
                     <p>Can you find a country on the globe and report its total COVID-19 cases?</p>
                     </a>
                 </list>
@@ -52,7 +52,7 @@ class Roadmap extends Component{
                 <list>
                     <a href = "/PreventativeMeasures">
                     <h1>Preventative Measures</h1>
-                    <p>How can I help reduce the spread of COVID-19 in my neighborhood</p>
+                    <p>How can I help reduce the spread of COVID-19 in my neighborhood?</p>
                     </a>
                 </list>
                 
@@ -62,7 +62,7 @@ class Roadmap extends Component{
                     <a href = "/FaceMasks">
                     <h1>Face Masks?</h1>
                     <p> Why are people wearing face masks?</p>
-                    <p>What are the benefits of wearing face masks</p>
+                    <p>What are the benefits of wearing face masks?</p>
                     <p>Do I also have to wear a face mask? Why?</p>
                     </a>
                 </list>
@@ -82,16 +82,16 @@ class Roadmap extends Component{
                 <list>
                     <a href = "/AllRecoveries">
                     <h1>Dashboard: Recovered</h1>
-                    <p>See recovered cases from all countries</p>
-                    <p>Compare recoveries between countries</p>
+                    <p>See recovered cases from all countries.</p>
+                    <p>Compare recoveries between countries.</p>
                     </a>
                 </list>
                 
                 
                 <list>
                     <a href = "/Conqueror">
-                    <h1>COVID conqueror</h1>
-                    <p>Be a Fit Kid to Save the World: Find out how you can be a COVID Conquer Chamion and help reduce the spread of COVID-19</p>
+                    <h1>COVID Conqueror</h1>
+                    <p>Be a Fit Kid to Save the World! Find out how you can be a COVID Conqueror Champion and help reduce the spread of COVID-19.</p>
                     </a>
                 </list>
                 
@@ -99,8 +99,8 @@ class Roadmap extends Component{
                 <list>
                     <a href = "/Summary">
                     <h1>Summary</h1>
-                    <p>See a summary of the COVID Conquer missions and main lessons from each</p>
-                    <p>Action  Items</p>
+                    <p>See a summary of the COVID Conqueror missions and main lessons from each.</p>
+                    <p>Action  Items!</p>
                     </a>
                 </list>
                 

@@ -53,7 +53,6 @@ function Vulnerable() {
                         <i class="fas fa-hand-point-right"></i>
                     </div>
                 </a>
-                <FooterPage />               
             </center>
         </div>
     );

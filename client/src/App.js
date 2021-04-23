@@ -1,9 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
-import Roadmap from './Components/Navbar/Roadmap.js';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
-import ContentMission from './Components/Pages/ContentMission';
 import DashboardAll from './Components/Pages/DashboardAll';
 import DashboardRecovered from './Components/Pages/DashboardRecovered';
 import AllCasesGlobe from './Components/Pages/AllCasesGlobe.js';
@@ -21,11 +19,11 @@ import Conqueror from './Components/Pages/Conqueror.js';
 function App() {
     return (
         <Router>
-            <div className = "App">
+            <div className = "App" >
                 <center>
                     <Navbar />
                     <br/>
-                    <Switch>
+                    <Switch >
                         <Route exact path = "/AllRecoveries">
                             <DashboardRecovered />
                         </Route>
@@ -35,9 +33,7 @@ function App() {
                         <Route exact path = "/">
                             <Landing />
                         </Route>
-                        <Route exact path = "/ContentMission">
-                            <ContentMission />
-                        </Route>
+                        
                         <Route exact path = "/Globe">
                             <AllCasesGlobe />
                         </Route>
@@ -63,6 +59,7 @@ function App() {
                             <Conqueror />
                         </Route>
                     </Switch>
+                    
                 </center>
             </div>
         </Router>

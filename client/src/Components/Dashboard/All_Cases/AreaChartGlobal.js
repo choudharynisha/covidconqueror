@@ -166,10 +166,7 @@ class AreaChartGlobal extends Component {
         return (
             <div >
                 <center>
-                <h1>Global Covid Cases</h1>
-                <div style = {{height: 100}}>
-                    Some text explaining the mission/how dashboard works and types of charts used
-                </div>
+            
                 <form onSubmit = {this.handleSubmit}> 
                 <div style = {{width: 600}}>
                 <label>Choose one or more Countries: </label>

@@ -1,29 +1,20 @@
 const menuItems = [
     {
-        title: 'Recovered',
-        url: '/AllRecoveries',
-        cName: 'nav-links'
-    },
-    {
-        title: 'Content Missions',
-        url: '/ContentMission',
-        cName: 'nav-links'
-    },
-    {
-        title: 'All Cases',
-        url: '/AllCases',
-        cName: 'nav-links'
-    },
-    {
-        title: 'Globe',
-        url: '/Globe',
-        cName: 'nav-links'
-    },
-    {
-        title: 'Help',
+        title: 'Home',
         url: '/',
-        cName: 'nav-links-mobile'
+        cName: 'nav-links'
+    },
+    {
+        title: 'Summary',
+        url: '/Summary',
+        cName: 'nav-links'
+    },
+    {
+        title: 'Fit Kid 💪',
+        url: '/Conqueror',
+        cName: 'nav-links'
     }
+   
 ]
 
 export default menuItems
