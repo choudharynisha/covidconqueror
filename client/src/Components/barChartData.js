@@ -1,4 +1,3 @@
-import axios from "axios";
 // Build data for a classic bar chart
 const data = {}
 

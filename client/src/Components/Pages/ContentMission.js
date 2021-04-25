@@ -1,7 +1,6 @@
 import '../../App.css';
-import Threebuttons from '../Navbar/Threebuttons'
-import FooterPage from '../Navbar/Footer'
-import '../Navbar/Textbox.css'
+import FooterPage from '../Navbar/Footer';
+import '../Navbar/Textbox.css';
 
 function ContentMission() {
     return (

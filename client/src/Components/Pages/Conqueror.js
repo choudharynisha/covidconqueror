@@ -1,7 +1,5 @@
 import '../../App.css';
-import Threebuttons from '../Navbar/Threebuttons'
-import FooterPage from '../Navbar/Footer'
-import '../Navbar/Textbox.css'
+import '../Navbar/Textbox.css';
 import '../Navbar/Threebuttons.css'; 
 
 function Conqueror() {
@@ -10,13 +8,13 @@ function Conqueror() {
             <center> 
             <div className = "Textbox">
                 <h2 className = "heading">Be A fit Kid and Conquer COVID!</h2>
+                <br /><center><iframe width = "560" height = "315" src = "https://www.youtube.com/embed/FWw8xgDTFTQ" title = "YouTube video player" frameborder = "0" allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center><br />
                 <p className = "text">So far you have learned a lot about what Coronavirus is and how you can fight the spread of it and conquer the disease. Also as a COVID conqueror champion, you should remind yourself of a few things.</p>
                 <p className = "text">First, stay positive and continue to do things you enjoy. For example, try having fun spending extra time with the people you live with if you can or have fun playing outside while sticking to preventative measures.</p>
                 <p className = "text">Second, be kind and helpful. All the changes due to the pandemic can make kids and adults feel stressed. You can help by doing little things that make a big difference. For example, help take care of a younger sibling if you have one, clean your belongings, or give the people you live and love a hug. Also, be kind to yourself and relax.</p>
                 <p className = "text">Third, take the time to notice your feelings. Missing things like school field trips or sports can make you feel sad, but just know that it won’t be forever. For now, you can feel better if you stay in touch with people you miss. Talk on the phone or visit by video. You can draw pictures that show how you feel. Or talk about it with someone you feel close to.</p>
                 <p className = "text">Lastly, be sure to be a fit kid. Remember to exercise and move your body around so that you can stay active and healthy. Also, eat healthy foods like fruits and vegetables so your body is strong when battling and preventing COVID-19.</p> 
                 <p className = "text">As a COVID Conqueror Champion, you have a lot of responsibilities, but don’t forget to smile, help others, and have fun!</p><br />
-                <center><iframe width = "560" height = "315" src = "https://www.youtube.com/embed/FWw8xgDTFTQ" title = "YouTube video player" frameborder = "0" allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center><br />
             </div>
               
               <div className = "reflection">

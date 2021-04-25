@@ -1,8 +1,7 @@
 import '../../App.css';
 import COVIDConquerorGlobe from '../Globes/COVIDConquerorGlobe.js';
 import '../../App.css';
-import Threebuttons from '../Navbar/Threebuttons'
-import '../Navbar/Textbox.css'
+import '../Navbar/Textbox.css';
 
 function AllCasesGlobe() {
     return (

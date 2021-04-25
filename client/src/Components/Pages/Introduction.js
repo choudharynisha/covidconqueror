@@ -1,6 +1,5 @@
 import '../../App.css';
-import Threebuttons from '../Navbar/Threebuttons'
-import '../Navbar/Textbox.css'
+import '../Navbar/Textbox.css';
 
 function Introduction() {
     return (
