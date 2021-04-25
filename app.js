@@ -30,13 +30,13 @@ const metadata = mongoose.model('metadata', defaultSchema, 'metadata');
 
 /****************************************** CovidDashboard GlobalChart component  *******************************/
 // display global countries
-app.get("/allCountries", function(req, res){ 
+app.get("/allCountries", function(req, res) { 
     console.log("We are getting countries data");
     metadata.find().select('countries -_id').lean().exec(function(err, results) {
-        if (err) {
+        if(err) {
             console.log('error', err);
             res.send(err);
-        } else if (!results) {
+        } else if(!results) {
             res.send(null);
         } else {
             res.send(results[0]);
@@ -44,8 +44,8 @@ app.get("/allCountries", function(req, res){
     })
 });
 
-// covid data for global countries
-app.post("/dataGlobalWithTimeRange", function(req, res){ 
+// COVID data for global countries
+app.post("/dataGlobalWithTimeRange", function(req, res) { 
     console.log("We are getting data");
     console.log(req.body);
     countries_summary.find({ country: req.body.selectedCountry, date: {
@@ -53,28 +53,29 @@ app.post("/dataGlobalWithTimeRange", function(req, res){
         $lte: new Date(req.body.endDate.slice(0,10))
     }
     }).lean().exec(function(err, results) {
-        if (err) {
+        if(err) {
             console.log('error', err);
             res.send(err);
-        } else if (!results) {
+        } else if(!results) {
             res.send(null);
         } else {
             //res.send(results);
             var querydata = new Array();
-            for (var i = 0; i < results.length; i++){
+            for(var i = 0; i < results.length; i++) {
                 querydata.push({
                     label: String(results[i].date).slice(3,10),
                     value: results[i].confirmed_daily
                 });
             }
+
             res.send(querydata);
         }
     })
 });
 
 /****************************************** CovidDashboard USCovidChart component  *******************************/
-// covid data for states
-app.post("/dataUSCovidWithTimeRange", function(req, res){ 
+// COVID data for states
+app.post("/dataUSCovidWithTimeRange", function(req, res) { 
     console.log("We are getting data");
     console.log(req.body);
     global_and_us.aggregate([
@@ -97,7 +98,7 @@ app.post("/dataUSCovidWithTimeRange", function(req, res){
             }
         }
     ]).sort({'_id': 1}).exec(function(err, results) {
-        if (err) {
+        if(err) {
             console.log('error', err);
             res.send(err);
         } else if(!results) {
@@ -106,7 +107,7 @@ app.post("/dataUSCovidWithTimeRange", function(req, res){
             //res.send(results);
             var querydata = new Array();
             
-            for(let i = 0; i < results.length; i++){
+            for(let i = 0; i < results.length; i++) {
                 querydata.push({
                     label: String(results[i]._id).slice(3,10),
                     value: results[i].value
@@ -119,7 +120,7 @@ app.post("/dataUSCovidWithTimeRange", function(req, res){
 });
 
 // display all US states
-app.get("/dataUSStates", function(req, res){ 
+app.get("/dataUSStates", function(req, res) { 
     console.log("We are getting data");
     console.log(req.body);
     metadata.find({}).select('states_us -_id').lean().exec(function(err, results) {
@@ -136,7 +137,7 @@ app.get("/dataUSStates", function(req, res){
 
 /****************************************** Recovered Dashboard GlobalRecoveredChart component  *******************************/
 // recovered data for global
-app.post("/dataGlobalRecovered", function(req, res){ 
+app.post("/dataGlobalRecovered", function(req, res) { 
     console.log("We are getting data");
     console.log(req.body);
     countries_summary.find({ country: req.body.selectedCountry, date: {
@@ -144,15 +145,16 @@ app.post("/dataGlobalRecovered", function(req, res){
         $lte: new Date(req.body.endDate.slice(0,10))
     }
     }).lean().exec(function(err, results) {
-        if (err) {
+        if(err) {
             console.log('error', err);
             res.send(err);
-        } else if (!results) {
+        } else if(!results) {
             res.send(null);
         } else {
             //res.send(results);
             var querydata = new Array();
-            for (var i = 0; i < results.length; i++){
+            
+            for(var i = 0; i < results.length; i++) {
                 querydata.push({
                     label: String(results[i].date).slice(3,10),
                     value: results[i].recovered_daily
@@ -164,15 +166,15 @@ app.post("/dataGlobalRecovered", function(req, res){
 });
 
 /****************************************** Recovered Dashboard GlobalCovidAndRecoveredPieChart component  *******************************/
-// data for total covid and recovered cases for global country
-app.post("/dataGlobalCovidAndRecovered", function(req, res){ 
+// data for total COVID and recovered cases for global country
+app.post("/dataGlobalCovidAndRecovered", function(req, res) { 
     console.log("We are getting data");
     console.log(req.body);
     countries_summary.find({ country: req.body.selectedCountry}).sort({"date": -1}).limit(1).lean().exec(function(err, results) {
-        if (err) {
+        if(err) {
             console.log('error', err);
             res.send(err);
-        } else if (!results) {
+        } else if(!results) {
             res.send(null);
         } else {
             //res.send(results);
@@ -210,7 +212,7 @@ app.post("/dataGlobalCovidAndRecovered", function(req, res){
 
 /****************************************** Globe component  *******************************/
 // data for total COVID cases for globe
-app.get("/dataGlobe", function(req, res){ 
+app.get("/dataGlobe", function(req, res) { 
     console.log("We are getting data");
     const yesterday = new Date(new Date);
     yesterday.setDate(yesterday.getDate() - 1);
@@ -219,12 +221,13 @@ app.get("/dataGlobe", function(req, res){
         if(err) {
             console.log('error', err);
             res.send(err);
-        } else if (!results) {
+        } else if(!results) {
             res.send(null);
         } else {
             var querydata = new Array();
-            for (var i = 0; i < results.length; i++){
-                if(results[i].hasOwnProperty("loc")){
+
+            for(var i = 0; i < results.length; i++) {
+                if(results[i].hasOwnProperty("loc")) {
                     querydata.push({
                         lng: results[i].loc.coordinates[0],
                         lat: results[i].loc.coordinates[1],
@@ -233,13 +236,14 @@ app.get("/dataGlobe", function(req, res){
                     });
                 }
             }
+
             res.send(querydata);
         }
     })
 });
 
 /****************************************** StackedAreaChart *******************************/
-app.get("/dataGlobalAreaChart", function(req, res){ 
+app.get("/dataGlobalAreaChart", function(req, res) { 
     //{title: {$in: ['some title', 'some other title']}
     let countries = ["China", "France", "Egypt", "Germany"];
     countries_summary.find({ country: {$in: countries}, date: {
@@ -247,23 +251,25 @@ app.get("/dataGlobalAreaChart", function(req, res){
         $lte: new Date("2021-02-10")
     }}).select("date country population confirmed_daily -_id")
     .lean().exec(function(err, results) {
-        if (err) {
+        if(err) {
             console.log('error', err);
             res.send(err);
-        } else if (!results) {
+        } else if(!results) {
             res.send(null);
         } else {
            var queryData = new Array();
            let currentDay = new Date("2021-02-01");
            let endDay = new Date("2021-02-10");
            let index = 0;
-           while (currentDay < endDay) {
+
+           while(currentDay < endDay) {
                 var dataObject = {};
                 dataObject.date = currentDay.toString().slice(3,10);
-                for(var i = 0; i < results.length; i++){
-                    for(var j = 0; j < countries.length; j++){
+
+                for(var i = 0; i < results.length; i++) {
+                    for(var j = 0; j < countries.length; j++) {
                         //console.log(results[i].population);
-                        if (results[i].country === countries[j] && String(results[i].date) === String(currentDay)){
+                        if(results[i].country === countries[j] && String(results[i].date) === String(currentDay)) {
                             var area = countries[j]
                             var cases = countries[j]
                             //dataObject[area] = countries[j];
@@ -290,7 +296,7 @@ app.post("/dataGlobalAreaChart", function(req, res) {
         $lte: new Date(req.body.endDate.slice(0,10)),
     }}).select("date country population confirmed confirmed_daily -_id")
     .lean().exec(function(err, results) {
-        if (err) {
+        if(err) {
             console.log('error', err);
             res.send(err);
         } else if(!results) {
@@ -298,21 +304,20 @@ app.post("/dataGlobalAreaChart", function(req, res) {
         } else {
            var queryData = new Array();
            let currentDay = new Date(req.body.startDate); 
-           let endDay = new Date(req.body.endDate); 
-           let index = 0;
+           let endDay = new Date(req.body.endDate);
+           
            while (currentDay < endDay) {
                 var dataObject = {};
                 dataObject.date = currentDay.toString().slice(3,10);
 
-                for(var i = 0; i < results.length; i++){
-                    for(var j = 0; j < countries.length; j++){
+                for(var i = 0; i < results.length; i++) {
+                    for(var j = 0; j < countries.length; j++) {
                         //if(results[i].country === countries[j] && String(results[i].date) === String(currentDay)) {
                         if(results[i].country === countries[j] && String(results[i].date).slice(3,10) === String(currentDay).slice(3,10)) {
                             var countryCases = countries[j]
                             if(results[i].confirmed_daily < 0) {
                                 dataObject[countryCases] = 0;
-                            }
-                            else{
+                            } else {
                                 dataObject[countryCases] = results[i].confirmed_daily;
                             }
                             //dataObject[countryCases] = results[i].confirmed_daily;
@@ -323,8 +328,8 @@ app.post("/dataGlobalAreaChart", function(req, res) {
                 
                 queryData.push(dataObject);
                 currentDay.setDate(currentDay.getDate()+1);
-                index++;
-           }
+            }
+
             res.send(queryData);
             //res.send(results);
         }
@@ -332,36 +337,37 @@ app.post("/dataGlobalAreaChart", function(req, res) {
 });
 
 /****************************************** POST StackedChartGlobalRecovered *******************************/
-// for covid cases in the stacked area and stacked bar chart
-app.post("/dataGlobalStackedChartRecovered", function(req, res){ 
+// for COVID cases in the stacked area and stacked bar chart
+app.post("/dataGlobalStackedChartRecovered", function(req, res) { 
     let countries = req.body.selectedCountries;
     countries_summary.find({ country: {$in: countries}, date: {
         $gte: new Date(req.body.startDate.slice(0,10)),
         $lte: new Date(req.body.endDate.slice(0,10)),
     }}).select("date country population recovered_daily -_id")
     .lean().exec(function(err, results) {
-        if (err) {
+        if(err) {
             console.log('error', err);
             res.send(err);
-        } else if (!results) {
+        } else if(!results) {
             res.send(null);
         } else {
            var queryData = new Array();
            let currentDay = new Date(req.body.startDate); 
-           let endDay = new Date(req.body.endDate); 
+           let endDay = new Date(req.body.endDate);
            let index = 0;
-           while (currentDay < endDay) {
+
+           while(currentDay < endDay) {
                 var dataObject = {};
                 dataObject.date = currentDay.toString().slice(3,10);
-                for(var i = 0; i < results.length; i++){
-                    for(var j = 0; j < countries.length; j++){
-                        //if (results[i].country === countries[j] && String(results[i].date) === String(currentDay)){
-                        if (results[i].country === countries[j] && String(results[i].date).slice(3,10) === String(currentDay).slice(3,10)){
+                for(var i = 0; i < results.length; i++) {
+                    for(var j = 0; j < countries.length; j++) {
+                        //if(results[i].country === countries[j] && String(results[i].date) === String(currentDay)) {
+                        if(results[i].country === countries[j] && String(results[i].date).slice(3,10) === String(currentDay).slice(3,10)) {
                             var countryCases = countries[j]
-                            if(results[i].recovered_daily < 0){
+
+                            if(results[i].recovered_daily < 0) {
                                 dataObject[countryCases] = 0;
-                            }
-                            else{
+                            } else {
                                 dataObject[countryCases] = results[i].recovered_daily;
                             }
                             //dataObject[countryCases] = results[i].recovered_daily;
@@ -369,6 +375,7 @@ app.post("/dataGlobalStackedChartRecovered", function(req, res){
                         }
                     }
                 }
+
                 queryData.push(dataObject);
                 currentDay.setDate(currentDay.getDate()+1);
                 index++;
