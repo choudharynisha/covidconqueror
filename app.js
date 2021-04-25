@@ -27,13 +27,6 @@ const global_and_us = mongoose.model('global_and_us', defaultSchema, 'global_and
 const global = mongoose.model('global', defaultSchema, 'global');
 const countries_summary = mongoose.model('countries_summary', defaultSchema, 'countries_summary');
 const metadata = mongoose.model('metadata', defaultSchema, 'metadata');
-const us_only = mongoose.model('us_only', defaultSchema, 'us_only');
-
-// app.get("/", function(req, res){
-//     console.log("We are in the home page");
-//     res.send("<h1> Hello World </h1");
-  
-// });
 
 /****************************************** CovidDashboard GlobalChart component  *******************************/
 // display global countries
@@ -80,20 +73,27 @@ app.post("/dataGlobalWithTimeRange", function(req, res){
 });
 
 /****************************************** CovidDashboard USCovidChart component  *******************************/
-//covid data for states
+// covid data for states
 app.post("/dataUSCovidWithTimeRange", function(req, res){ 
     console.log("We are getting data");
     console.log(req.body);
     global_and_us.aggregate([
-        {$match:
-            {"country": "US",
-             "state" : req.body.selectedArea,
-             'date': { $gte: new Date(req.body.startDate.slice(0,10)),
-               $lte: new Date(req.body.endDate.slice(0,10)) } } },
+        {
+            $match: {
+                "country": "US",
+                "state" : req.body.selectedArea,
+                'date': {
+                    $gte: new Date(req.body.startDate.slice(0,10)),
+                    $lte: new Date(req.body.endDate.slice(0,10))
+                }
+            }
+        },
         {
             "$group": {
                 "_id": "$date",
-                "value": { "$sum": "$confirmed_daily" }
+                "value": {
+                    "$sum": "$confirmed_daily"
+                }
             }
         }
     ]).sort({'_id': 1}).exec(function(err, results) {
@@ -106,7 +106,7 @@ app.post("/dataUSCovidWithTimeRange", function(req, res){
             //res.send(results);
             var querydata = new Array();
             
-            for(var i = 0; i < results.length; i++){
+            for(let i = 0; i < results.length; i++){
                 querydata.push({
                     label: String(results[i]._id).slice(3,10),
                     value: results[i].value
@@ -123,10 +123,10 @@ app.get("/dataUSStates", function(req, res){
     console.log("We are getting data");
     console.log(req.body);
     metadata.find({}).select('states_us -_id').lean().exec(function(err, results) {
-        if (err) {
+        if(err) {
             console.log('error', err);
             res.send(err);
-        } else if (!results) {
+        } else if(!results) {
             res.send(null);
         } else {
             res.send(results[0]);
@@ -209,20 +209,19 @@ app.post("/dataGlobalCovidAndRecovered", function(req, res){
 });
 
 /****************************************** Globe component  *******************************/
-// data for total covid cases for globe
+// data for total COVID cases for globe
 app.get("/dataGlobe", function(req, res){ 
     console.log("We are getting data");
     const yesterday = new Date(new Date);
     yesterday.setDate(yesterday.getDate() - 1);
     var value = yesterday.toISOString().split('T')[0];
     global.find({date: new Date(value)}).lean().exec(function(err, results) {
-        if (err) {
+        if(err) {
             console.log('error', err);
             res.send(err);
         } else if (!results) {
             res.send(null);
         } else {
-            //res.send(results);
             var querydata = new Array();
             for (var i = 0; i < results.length; i++){
                 if(results[i].hasOwnProperty("loc")){
@@ -237,31 +236,6 @@ app.get("/dataGlobe", function(req, res){
             res.send(querydata);
         }
     })
-    // old query and formatting for globe where US was no one tower
-    /*global_and_us.find({date: new Date(value)}).lean().exec(function(err, results) { 
-        if (err) {
-            console.log('error', err);
-            res.send(err);
-        } else if (!results) {
-            res.send(null);
-        } else {
-            //res.send(results);
-            var querydata = new Array();
-            for (var i = 0; i < results.length; i++) {
-                var combined_name_length = results[i].combined_name.length;
-                
-                if(results[i].hasOwnProperty("loc") && (results[i].combined_name.substring(combined_name_length - 2).localeCompare("US") != 0)) {
-                    querydata.push({
-                        lng: results[i].loc.coordinates[0],
-                        lat: results[i].loc.coordinates[1],
-                        cases: results[i].confirmed,
-                        combined_name: results[i].combined_name
-                    });
-                }
-            }
-            res.send(querydata);
-        }
-    })*/
 });
 
 /****************************************** StackedAreaChart *******************************/
@@ -297,18 +271,19 @@ app.get("/dataGlobalAreaChart", function(req, res){
                         }
                     }
                 }
+
                 queryData.push(dataObject);
                 currentDay.setDate(currentDay.getDate()+1);
                 index++;
-           }
+            }
+
             res.send(queryData);
-            //res.send(results);
         }
     })
 });
 
 /****************************************** POST StackedAreaChart *******************************/
-app.post("/dataGlobalAreaChart", function(req, res){ 
+app.post("/dataGlobalAreaChart", function(req, res) { 
     let countries = req.body.selectedCountries;
     countries_summary.find({ country: {$in: countries}, date: {
         $gte: new Date(req.body.startDate.slice(0,10)),
@@ -318,7 +293,7 @@ app.post("/dataGlobalAreaChart", function(req, res){
         if (err) {
             console.log('error', err);
             res.send(err);
-        } else if (!results) {
+        } else if(!results) {
             res.send(null);
         } else {
            var queryData = new Array();
@@ -328,12 +303,13 @@ app.post("/dataGlobalAreaChart", function(req, res){
            while (currentDay < endDay) {
                 var dataObject = {};
                 dataObject.date = currentDay.toString().slice(3,10);
+
                 for(var i = 0; i < results.length; i++){
                     for(var j = 0; j < countries.length; j++){
-                        //if (results[i].country === countries[j] && String(results[i].date) === String(currentDay)){
-                        if (results[i].country === countries[j] && String(results[i].date).slice(3,10) === String(currentDay).slice(3,10)){
+                        //if(results[i].country === countries[j] && String(results[i].date) === String(currentDay)) {
+                        if(results[i].country === countries[j] && String(results[i].date).slice(3,10) === String(currentDay).slice(3,10)) {
                             var countryCases = countries[j]
-                            if(results[i].confirmed_daily < 0){
+                            if(results[i].confirmed_daily < 0) {
                                 dataObject[countryCases] = 0;
                             }
                             else{
@@ -344,6 +320,7 @@ app.post("/dataGlobalAreaChart", function(req, res){
                         }
                     }
                 }
+                
                 queryData.push(dataObject);
                 currentDay.setDate(currentDay.getDate()+1);
                 index++;
@@ -355,7 +332,7 @@ app.post("/dataGlobalAreaChart", function(req, res){
 });
 
 /****************************************** POST StackedChartGlobalRecovered *******************************/
-//for covid cases in the stacked area and stacked bar chart
+// for covid cases in the stacked area and stacked bar chart
 app.post("/dataGlobalStackedChartRecovered", function(req, res){ 
     let countries = req.body.selectedCountries;
     countries_summary.find({ country: {$in: countries}, date: {
@@ -402,12 +379,12 @@ app.post("/dataGlobalStackedChartRecovered", function(req, res){
     })
 });
 
-// Server static assets in production
+// server static assets in production
 if(process.env.NODE_ENV === "production") {
-    // Set static folder
+    // set static folder
     app.use(express.static("client/build"));
   
-    // Serve all paths to point to the client folder's build folder index.html file
+    // serve all paths to point to the client folder's build folder index.html file
     app.get("*", (req, res) => {
       res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
     });
