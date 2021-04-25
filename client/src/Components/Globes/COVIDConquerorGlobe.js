@@ -23,33 +23,27 @@ class COVIDConquerorGlobe extends Component {
     
     render() {
         const getComparison = (value) => {
-            // 10 - limo (90) fitting 10 people
+            // 10 - limo (up to 90) fitting 10 people
             // 100 - school auditorium (100 - 900) fitting 100 people
             // 1000 - stadium (1000 - up) fitting 1000 people 
   
-            if (value >= 10 && value <= 100) {
-              return " cases is about " + Math.round(value/10) + " soccer teams with 10 people";
+            if(value >= 10 && value <= 100) {
+              return ", which is about " + Math.round(value / 10) + " soccer teams with 10 people";
+            } else if(value > 100 && value <= 1000) {
+              return ", which is about " + Math.round(value / 100) + " school auditoriums fitting 100 people";
+            } else if(value > 1000) {
+              return ", which is about " + Math.round(value / 1000) + " stadiums fitting 1000 people";
+            } else {
+              return ", which is about less than a soccer team";
             }
-            /*else if(value > 100){
-              return " cases is about " + Math.round(value/100) + " school auditoriums fitting 100 people";
-            }*/
-            else if(value > 100 && value <= 1000){
-              return " cases is about " + Math.round(value/100) + " school auditoriums fitting 100 people";
-            }
-            else if(value > 1000){
-              return " is about " + Math.round(value/1000) + " stadiums fitting 1000 people";
-            }
-            else{
-              return " cases is about less than a soccer team";
-            }
+
             return "";
         };
 
-
         const getTooltip = d => `
-        <div style="text-align: center; color: black; background-color: white; border:2px solid grey; padding: 5px;">
+        <div style = "text-align: center; color: black; background-color: white; border:2px solid grey; padding: 5px;">
             <div><b>${d.combined_name}</br>
-            Has ${d.cases} confirmed COVID-19 cases ${getComparison(d.cases)} 
+            Has ${d.cases} confirmed COVID-19 cases ${getComparison(d.cases)}
             </div>
         </div>
         `;
