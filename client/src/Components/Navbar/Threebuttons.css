@@ -1,4 +1,4 @@
-.eachbutton{
+.eachbutton {
     width: 10%;
     padding: 10px;
     margin: 15px;
@@ -8,18 +8,17 @@
     padding-bottom: 60px; 
 }
 
-
-.fa-hand-point-left{
+.fa-hand-point-left {
     color: teal;
     font-size: 1.6rem;
 }
 
-.fa-hand-point-right{
+.fa-hand-point-right {
     color: teal;
     font-size:1.6rem;
 }
 
-.fa-hand-point-up{
+.fa-hand-point-up {
     color: teal;
     font-size: 1.6rem;
 }

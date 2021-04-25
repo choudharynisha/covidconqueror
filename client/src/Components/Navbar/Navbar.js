@@ -1,25 +1,25 @@
 import React, { Component, useEffect } from 'react';
 import MenuItems from './MenuItems';
-import {Button} from '../Button'
+import {Button} from '../Button';
 import './Navbar.css';
 
 class Navbar extends Component{
     state = {clicked: false, nav: false}
-
+    
     handleClick = () => {
         this.setState({clicked: !this.state.clicked})
     }
-
+    
     listener = null;
-
+    
     componentDidMount() {
         window.addEventListener("scroll", this.handleScroll);
     }
-
+    
     componentWillUnmount() {
       window.removeEventListener('scroll');
     }
-
+    
     handleScroll = () => {
         if(window.pageYOffset > 140) {
             if(!this.state.nav) {
@@ -31,17 +31,17 @@ class Navbar extends Component{
             }
         }
     }
-   
+    
     render () {
         return (
             <nav className = {`NavbarItems ${this.state.nav && 'Nav'}`}>
-               
-                <h1 className = "navbar-logo"> Covid Conqueror <em className = 'fas fa-shield-virus'></em></h1>
+                
+                <h1 className = "navbar-logo">Covid Conqueror <em className = 'fas fa-shield-virus'></em></h1>
                 
                 <div className = "menu-icon" onClick = {this.handleClick}>
                     <em className = {this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></em>
                 </div>
-
+                
                 <ul className = {this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
                     {MenuItems.map((item, index) => {
                         return (
@@ -53,7 +53,6 @@ class Navbar extends Component{
                         )
                     })}
                 </ul>
-
             </nav>
         )
     }

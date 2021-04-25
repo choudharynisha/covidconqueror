@@ -10,7 +10,7 @@ class RecoveredDashboard extends Component {
         return (
             <div>
                 {/* <GlobalRecoveredChart/> */}
-                <StackedChartGlobalRecovered /> 
+                <StackedChartGlobalRecovered /><br />
                 <GlobalCovidRecoveredPieChart/>
             </div>
           )

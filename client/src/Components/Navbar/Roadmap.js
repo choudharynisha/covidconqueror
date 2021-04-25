@@ -5,8 +5,7 @@ class Roadmap extends Component{
     render () {
         return (
             <div>
-                <ol> 
-                
+                <ol>
                 <list ><a href = "/Introduction">
                     <h1>Introduction</h1>
                     <p>What is a disease?</p>
@@ -16,8 +15,6 @@ class Roadmap extends Component{
                     </a>
                 </list>
                 
-
-                
                 <list>
                     <a href = "/History">
                     <h1>History of COVID</h1>
@@ -26,8 +23,6 @@ class Roadmap extends Component{
                     <p>Vaccines to bring hope!</p>
                     </a>
                 </list>
-               
-
                 
                 <list>
                     <a href = "/AllCases">
@@ -36,9 +31,6 @@ class Roadmap extends Component{
                     </a>
                 </list>
                 
-
-
-               
                 <list>
                     <a href = "/Globe">
                     <h1>Dashboard: Globe</h1>
@@ -47,16 +39,12 @@ class Roadmap extends Component{
                     </a>
                 </list>
                 
-
-                
                 <list>
                     <a href = "/PreventativeMeasures">
                     <h1>Preventative Measures</h1>
                     <p>How can I help reduce the spread of COVID-19 in my neighborhood?</p>
                     </a>
                 </list>
-                
-
                 
                 <list>
                     <a href = "/FaceMasks">
@@ -67,17 +55,13 @@ class Roadmap extends Component{
                     </a>
                 </list>
                 
-                
                 <list>
                     <a href = "/Vulnerable">
-                   <h1>At Risk Populations</h1>
+                   <h1>Populations At Risk</h1>
                    <p>Who are most affected with COVID-19 if they get the virus?</p>
                    <p>How can we protect vulnerable people in our community?</p>
                    </a>
                 </list>
-               
-
-
                 
                 <list>
                     <a href = "/AllRecoveries">
@@ -87,14 +71,12 @@ class Roadmap extends Component{
                     </a>
                 </list>
                 
-                
                 <list>
                     <a href = "/Conqueror">
                     <h1>COVID Conqueror</h1>
                     <p>Be a Fit Kid to Save the World! Find out how you can be a COVID Conqueror Champion and help reduce the spread of COVID-19.</p>
                     </a>
                 </list>
-                
                 
                 <list>
                     <a href = "/Summary">
@@ -103,14 +85,10 @@ class Roadmap extends Component{
                     <p>Action  Items!</p>
                     </a>
                 </list>
-                
-               
-                
                 </ol>
-              
             </div>
         )
     }
 }
 
-export default Roadmap
+export default Roadmap;
