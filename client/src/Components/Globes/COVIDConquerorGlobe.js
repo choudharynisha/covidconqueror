@@ -28,13 +28,13 @@ class COVIDConquerorGlobe extends Component {
             // 1000 - stadium (1000 - up) fitting 1000 people 
   
             if(value >= 10 && value <= 100) {
-              return ", which is about " + Math.round(value / 10) + " soccer teams with 10 people";
+              return "which is about " + Math.round(value / 10) + " soccer teams with 10 people";
             } else if(value > 100 && value <= 1000) {
-              return ", which is about " + Math.round(value / 100) + " school auditoriums fitting 100 people";
+              return "which is about " + Math.round(value / 100) + " school auditoriums fitting 100 people";
             } else if(value > 1000) {
-              return ", which is about " + Math.round(value / 1000) + " stadiums fitting 1000 people";
+              return "which is about " + Math.round(value / 1000) + " stadiums fitting 1000 people";
             } else {
-              return ", which is about less than a soccer team";
+              return "which is about less than a soccer team";
             }
 
             return "";
