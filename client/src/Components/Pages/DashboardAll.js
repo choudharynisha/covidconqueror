@@ -25,13 +25,13 @@ function DashboardAll() {
                         </div>
                     <div class = "flip-card">
                         <div class = "flip-card-inner">
-                            <div class = "flip-card-front"><p className = "paragraph">How many new positive cases were reported in Andora on February 2nd, 2021 (02/02/2021)?</p></div>
-                            <div class = "flip-card-back"><p className = "paragraph">53</p> </div>
+                            <div class = "flip-card-front"><p className = "paragraph">How many new positive cases were reported in Andora on February 2nd, 2021?</p></div>
+                            <div class = "flip-card-back"><p className = "paragraph">45</p> </div>
                         </div>
                         </div>
                         <div class = "flip-card">
                             <div class = "flip-card-inner">
-                                <div class = "flip-card-front"><p className = "paragraph">What is the sum of all cases reported in Kosovo and Austria on October 2nd, 2020 (10/02/2020)?</p></div>
+                                <div class = "flip-card-front"><p className = "paragraph">What is the sum of all cases reported in Kosovo and Austria on October 2nd, 2020?</p></div>
                                 <div class = "flip-card-back"><p className = "paragraph">730 cases<br />Explanation –<br />688 cases in Austria<br />+ 42 cases in Kosovo<br />= 730 cases combined</p></div>
                             </div>
                         </div>
