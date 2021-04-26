@@ -21,7 +21,7 @@ function PopulationsAtRisk() {
                     <div class = "flip-card">
                         <div class = "flip-card-inner">
                             <div class = "flip-card-front"><p className = "paragraph">What does it mean to be “at risk” for coronavirus?</p></div>
-                            <div class = "flip-card-back"><p className = "paragraph">Someone who is “at risk” for coronavirus is more likely to get very sick from coronavirus if they end up getting sick from coronavirus.</p></div>
+                            <div class = "flip-card-back"><p className = "paragraph">Someone who is “at risk” for coronavirus is more likely to get very sick from coronavirus if they are exposed to coronavirus. Someone who is not “at risk” is likely to have milder symptoms when exposed to coronavirus.</p></div>
                         </div>
                     </div>
                     <div class = "flip-card">
