@@ -22,14 +22,14 @@ function PreventativeMeasures() {
                         </div>
                     <div class = "flip-card">
                         <div class = "flip-card-inner">
-                            <div class = "flip-card-front"><p className = "paragraph"> What should I do when someone in my family is sick?</p></div>
-                            <div class = "flip-card-back"><p className = "paragraph"> When someone in your family is sick, you should try and help with chores in the house and allways wear a facemask around them. Also try and help them get food if there is some at home. If their symptomps get worse, call help immediately by dialing 911.</p></div>
+                            <div class = "flip-card-front"><p className = "paragraph">What should I do when someone in my family is sick?</p></div>
+                            <div class = "flip-card-back"><p className = "paragraph">When someone in your family is sick, try and help with chores in the house, always wear a face mask around them, and try to help them get food if there is some at home. If their symptoms get worse, call for help immediately by dialing 911.</p></div>
                         </div>
                     </div>
                     <div class = "flip-card">
                         <div class = "flip-card-inner">
-                            <div class = "flip-card-front"><p className = "paragraph"> Why is it important for people who are infected with the coronavirus to quarantine?</p></div>
-                            <div class = "flip-card-back"><p className = "paragraph"> It prevents the sick person from spreading the virus to other people.</p></div>
+                            <div class = "flip-card-front"><p className = "paragraph">Why is it important for people who are infected with the coronavirus to quarantine?</p></div>
+                            <div class = "flip-card-back"><p className = "paragraph">It prevents the sick person from spreading the virus to other people.</p></div>
                         </div>
                     </div>
                 </div>
