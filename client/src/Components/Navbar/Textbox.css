@@ -16,6 +16,7 @@ iframe {
 .text {
     padding-top: 20px;
 }
+
 .heading {
     text-align: center;
 }
@@ -23,7 +24,7 @@ iframe {
 .reflection {
     position: relative;
     width: 80%;
-    color:black;
+    color: #000000;
     overflow: hidden;
     align-items: left;
 }
@@ -64,7 +65,7 @@ iframe {
 }
 
 .flip-card-front {
-    background-color:rgb(1, 65, 65);
+    background-color: rgb(1, 65, 65);
     color: #ffffff;
 }
 
@@ -75,5 +76,5 @@ iframe {
 }
 
 .paragraph {
-    padding-top: 10%;
+    padding: 5%;
 }
