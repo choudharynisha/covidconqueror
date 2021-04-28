@@ -7,7 +7,7 @@ function History() {
             <center>  
             <div className = "Textbox">
                 <h2 className = "heading">The History of COVID-19</h2>
-                <br /><center><iframe width = "100%" height = "315" src = "https://www.youtube.com/embed/GoXxmzKdick?start=102&end=122" title="YouTube video player" frameborder="0"></iframe></center>
+                <br /><center><iframe width = "100%" height = "315" src = "https://www.youtube.com/embed/GoXxmzKdick?start=102&end=122" title = "YouTube video player" frameborder = "0"></iframe></center>
                 <p className = "text">The 2019 coronavirus was first reported in Wuhan, China. The number of illeness related to virus started to rise in the Wuhan region in December 2019, but soon after there was an outbreak as the numbers grew too fast. A disease outbreak is when many people in a given region are infected with a particular disease.<br /><br />
                 The virus quickly spread to other parts of the world and more and more people got sick, first in China and then around the world. Today, the virus has been reported in all countries in the world except 13 countries. While some regions have had more outbreaks than others, COVID-19 remains an international health problem affecting people from all over the world. To reduce the spread of the virus, entire cities have been quarantined, or closed off, to slow the disease's spread.</p><br />
             </div>
