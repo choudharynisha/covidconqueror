@@ -5,10 +5,10 @@ function FaceMasks() {
     return (
         <div className = "App">
             <center> 
-            <div className="Textbox">
+            <div className = "Textbox">
               <h2 className = "heading">Why are People Wearing Facemasks?</h2>
-              <br /><center><iframe width = "560" height = "315" src = "https://www.youtube.com/embed/vGB-hxst7fo" title = "YouTube video player" frameborder = "0" allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <iframe width = "560" height = "315" src = "https://www.youtube.com/embed/lt68rFG9Wq4" title = "YouTube video player" frameborder = "0" allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+              <br /><center><iframe width = "50%" height = "315" src = "https://www.youtube.com/embed/vGB-hxst7fo" title = "YouTube video player" frameborder = "0" allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width = "50%" height = "315" src = "https://www.youtube.com/embed/lt68rFG9Wq4" title = "YouTube video player" frameborder = "0" allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
                 <p className = "text">When going outside, you’ve probably seen so many people covering their mouths and nose with a mask. You’re probably thinking what is going on?<br /><br />
                 These masks are made of soft layered materials that cover the nose and mouth. There are also stretchy bands that go beyond the head or ears. They keep the mask in place. The most important thing about a mask is that it stops the spread of coronavirus but still lets someone breath air in and out. People are wearing these face masks to stop the coronavirus from spreading around and to protect others.<br /><br />
                 Anyone can wear a mask when they need to be near other people. Many people who work at stores and restaurants will wear them. A mask is an extra way to stop coronavirus. Some people might wear a homemade cloth mask.<br /><br />

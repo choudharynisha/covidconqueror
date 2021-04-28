@@ -8,7 +8,7 @@ function Conqueror() {
             <center> 
             <div className = "Textbox">
                 <h2 className = "heading">Be A fit Kid and Conquer COVID!</h2>
-                <br /><center><iframe width = "560" height = "315" src = "https://www.youtube.com/embed/FWw8xgDTFTQ" title = "YouTube video player" frameborder = "0" allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center><br />
+                <br /><center><iframe width = "100%" height = "315" src = "https://www.youtube.com/embed/FWw8xgDTFTQ" title = "YouTube video player" frameborder = "0" allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center><br />
                 <p className = "text">So far you have learned a lot about what Coronavirus is and how you can fight the spread of it and conquer the disease. Also as a COVID conqueror champion, you should remind yourself of a few things.<br /><br />
                 First, stay positive and continue to do things you enjoy. For example, try having fun spending extra time with the people you live with if you can or have fun playing outside while sticking to preventative measures.<br /><br />
                 Second, be kind and helpful. All the changes due to the pandemic can make kids and adults feel stressed. You can help by doing little things that make a big difference. For example, help take care of a younger sibling if you have one, clean your belongings, or give the people you live and love a hug. Also, be kind to yourself and relax.<br /><br />
