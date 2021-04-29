@@ -33,11 +33,9 @@ class COVIDConquerorGlobe extends Component {
               return "which is about " + Math.round(value / 100) + " school auditoriums fitting 100 people";
             } else if(value > 1000) {
               return "which is about " + Math.round(value / 1000) + " stadiums fitting 1000 people";
-            } else {
-              return "which is about less than a soccer team";
             }
 
-            return "";
+            return "which is less than a soccer team";
         };
 
         const getTooltip = d => `
