@@ -25,7 +25,7 @@ function DashboardAll() {
                         </div>
                     <div class = "flip-card">
                         <div class = "flip-card-inner">
-                            <div class = "flip-card-front"><p className = "paragraph">How many new positive cases were reported in Andorra on February 1, 2021?</p></div>
+                            <div class = "flip-card-front"><p className = "paragraph">How many new positive cases were reported in Andorra on February 2, 2021?</p></div>
                             <div class = "flip-card-back"><p className = "paragraph">45</p> </div>
                         </div>
                         </div>
