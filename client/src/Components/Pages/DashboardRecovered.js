@@ -30,7 +30,7 @@ function DashboardRecovered() {
                     </div>
                     <div class = "flip-card">
                         <div class = "flip-card-inner">
-                            <div class = "flip-card-front"><p className = "paragraph">How many people recovered from COVID-19 in Andora on February 3rd, 2021 (02/03/2021)?</p></div>
+                            <div class = "flip-card-front"><p className = "paragraph">How many people recovered from COVID-19 in Andorra on February 3, 2021?</p></div>
                             <div class = "flip-card-back"><p className = "paragraph">82</p></div>
                         </div>
                     </div>
